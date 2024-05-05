@@ -48,7 +48,13 @@ class simulation:
           wr_pos=wr*dt
           wl_pos=wl*dt
           return wr_pos,wl_pos
-          
+     
+     def wrap_to_Pi(self,theta):
+        result = np.fmod((theta + np.pi),(2 * np.pi))
+        if(result < 0):
+                result += 2 * np.pi
+        return result - np.pi
+
      def pose_stamped(self, x,y,theta_yaw):
           pose_robot=PoseStamped()
           pose_robot.header.stamp = rospy.Time.now()
@@ -60,19 +66,19 @@ class simulation:
           pose_robot.pose.orientation.y = quaternion[1]
           pose_robot.pose.orientation.z = quaternion[2]
           pose_robot.pose.orientation.w = quaternion[3]
-          #update the position
           return pose_robot
      
      def vel_xyz(self,theta):
-          #x_dot=self.v_*np.cos(theta) #vel
-          #y_dot=self.v_*np.sin(theta) #vel
-          #theta_dot=self.w_
-          #linealizado
-          x_dot=-self.v_*np.sin(theta) #vel
-          y_dot=self.v_*np.cos(theta) #vel
+          #No linealizado
+          x_dot=self.v_*np.cos(theta) 
+          y_dot=self.v_*np.sin(theta) 
           theta_dot=self.w_
+          
+          #linealizado
+          #x_dot=-self.v_*np.sin(theta) #vel
+          #y_dot=self.v_*np.cos(theta) #vel
+          #theta_dot=self.w_
       
-                  
           return x_dot,y_dot,theta_dot 
      
      def simulate(self):
@@ -109,8 +115,9 @@ class simulation:
                   x+= self.x_dot*dt  
                   y+= self.y_dot*dt
                   theta+= self.theta_dot*dt 
+                  print(self.wrap_to_Pi(theta))
                   pose_puzzlebot=self.pose_stamped(x,y,theta)
-                  #self.pub_pose.publish(pose_puzzlebot)
+                  self.pub_pose.publish(pose_puzzlebot)
                   #end
                   self.loop_rate.sleep()
 
