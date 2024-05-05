@@ -105,7 +105,7 @@ class simulation:
                   y+= self.y_dot*dt
                   theta+= self.theta_dot*dt 
                   pose_puzzlebot=self.pose_stamped(x,y,theta)
-                  #self.pub_pose.publish(pose_puzzlebot)
+                  self.pub_pose.publish(pose_puzzlebot)
                   #end
                   self.loop_rate.sleep()
 
