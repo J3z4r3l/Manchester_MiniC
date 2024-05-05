@@ -16,9 +16,7 @@
         
     
         <!--Test controller 
-        <node name="controller" pkg="puzzlebot_sim" type="Control2.py"/>
-        
-        
+        <node name="controller" pkg="puzzlebot_sim" type="Control2.py"/> 
     -->
     
     
