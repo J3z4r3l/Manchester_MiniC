@@ -70,14 +70,14 @@ class simulation:
      
      def vel_xyz(self,theta):
           #No linealizado
-          x_dot=self.v_*np.cos(theta) 
-          y_dot=self.v_*np.sin(theta) 
-          theta_dot=self.w_
+          #x_dot=self.v_*np.cos(theta) 
+          #y_dot=self.v_*np.sin(theta) 
+          #theta_dot=self.w_
           
           #linealizado
-          #x_dot=-self.v_*np.sin(theta) #vel
-          #y_dot=self.v_*np.cos(theta) #vel
-          #theta_dot=self.w_
+          x_dot=-self.v_*np.sin(theta) #vel
+          y_dot=self.v_*np.cos(theta) #vel
+          theta_dot=self.w_
       
           return x_dot,y_dot,theta_dot 
      
