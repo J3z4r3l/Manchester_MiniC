@@ -64,9 +64,14 @@ class simulation:
           return pose_robot
      
      def vel_xyz(self,theta):
-          x_dot=self.v_*np.cos(theta) #vel
-          y_dot=self.v_*np.sin(theta) #vel
+          #x_dot=self.v_*np.cos(theta) #vel
+          #y_dot=self.v_*np.sin(theta) #vel
+          #theta_dot=self.w_
+          #linealizado
+          x_dot=-self.v_*np.sin(theta) #vel
+          y_dot=self.v_*np.cos(theta) #vel
           theta_dot=self.w_
+      
                   
           return x_dot,y_dot,theta_dot 
      
