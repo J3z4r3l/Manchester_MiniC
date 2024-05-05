@@ -73,28 +73,10 @@ class SquareTrajectory:
 
     def run(self):
         # Mover al punto (1,0)
-        self.move(linear_speed=0.0, angular_speed=0.1, distance=100)
-        self.move(linear_speed=0.0, angular_speed=0.1, distance=100)
-        self.move(linear_speed=0.0, angular_speed=0.1, distance=100)
-        self.move(linear_speed=0.0, angular_speed=0.1, distance=100)
-        # Mover al punto (1,1) ahaha
-        #self.move(linear_speed=0.2, angular_speed=0.2, distance=1)
-        ## Mover al punto (0,1)
-        #self.move(linear_speed=0.2, angular_speed=0.2, distance=1)
-
-        ## Mover al punto (0,0)
-        #self.move(linear_speed=0.2, angular_speed=0.2, distance=1)
-        #
-        ###ZIGZAG o diamante
-        #self.move_ang(angular_speed=0.2)
-        #self.move(linear_speed=0.2, angular_speed=0.2, distance=1)
-        
-        #self.move_ang(angular_speed=0.2)
-        #self.move(linear_speed=0.2, angular_speed=0.2, distance=1)
-
-        #self.move_ang(angular_speed=0.2)
-        #self.move(linear_speed=0.2, angular_speed=0.2, distance=1)
-        #self.move(linear_speed=0.2, angular_speed=0.0, distance=1)
+        self.move(linear_speed=0.1, angular_speed=0.1, distance=1)
+        self.move(linear_speed=0.1, angular_speed=0.1, distance=1)
+        self.move(linear_speed=0.1, angular_speed=0.1, distance=1)
+        self.move(linear_speed=0.1, angular_speed=0.1, distance=1)
         
 
 
