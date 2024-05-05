@@ -45,13 +45,13 @@ class LocalizationNode:
     def get_positon(self,wr,wl,dt):
         self.vel=self.radius*(wr+wl)/2
         self.w=self.radius*(wr-wl)/self.wheelbase
-        x_dot= self.vel*np.cos(self.theta) #vel
-        y_dot=self.vel*np.sin(self.theta) #vel
-        theta_dot=self.w
+        #x_dot= self.vel*np.cos(self.theta) #vel
+        #y_dot=self.vel*np.sin(self.theta) #vel
+        #theta_dot=self.w
         #Linealizado
-        #x_dot= -vel*np.sin(self.theta) #vel
-        #y_dot=vel*np.cos(self.theta) #vel
-        #theta_dot=w
+        x_dot= -self.vel*np.sin(self.theta) #vel
+        y_dot=self.vel*np.cos(self.theta) #vel
+        theta_dot=self.w
         self.x += x_dot*dt
         print(self.w)
         self.y += y_dot*dt
