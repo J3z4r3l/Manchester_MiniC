@@ -17,17 +17,10 @@
         <node name="localisation" pkg="imp_puzzlebot_sim" type="localisation.py"/>
         <node name="puzzlebot_wheels" pkg="imp_puzzlebot_sim" type="wheels.py"/>
         <node name="puzzlebot_transform" pkg="imp_puzzlebot_sim" type="transforms.py"/>
+        <node name="triangle" pkg="imp_puzzlebot_sim" type="triangle.py"/>
         <node name="square_trajectory_node" pkg="imp_puzzlebot_sim" type="Control_lazo_abierto.py"/>
 
         <!-- Start RViz with the configured configuration file -->
         <arg name="rvizconfig" default="$(find imp_puzzlebot_sim)/rviz/puzzlebot_sim.rviz" />
         <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 </launch>
-
-
-
-
-
-
-
-
