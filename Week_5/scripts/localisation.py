@@ -7,7 +7,7 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import TransformStamped, Quaternion
 from tf import TransformBroadcaster
 from tf.transformations import quaternion_from_euler
-from std_msgs.msg import Float64MultiArray
+
 
 
 class LocalizationNode:
@@ -29,8 +29,8 @@ class LocalizationNode:
         self.x=0.0
         self.y=0.0
         #variables to tune
-        self.kr=0.5
-        self.kl=0.5
+        self.kr=1.7
+        self.kl=1.8
         self.wr_r_speed=0.0
         self.wl_r_speed=0.0
         self.odom_msg = Odometry()
