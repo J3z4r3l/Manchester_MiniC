@@ -7,7 +7,6 @@ Panels:
         - /Global Options1
         - /Status1
         - /Marker1
-        - /Marker1/Status1
       Splitter Ratio: 0.5
     Tree Height: 443
   - Class: rviz/Selection
@@ -55,40 +54,21 @@ Visualization Manager:
       Reference Frame: odom
       Value: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
-          Value: true
-        chassis:
-          Value: true
-        map:
-          Value: true
-        odom:
-          Value: true
-        wheel1:
-          Value: true
-        wheel2:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          odom:
-            base_link:
-              chassis:
-                wheel1:
-                  {}
-                wheel2:
-                  {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -194,7 +174,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.10240364074707
+      Distance: 1.643035650253296
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
