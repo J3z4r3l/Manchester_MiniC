@@ -14,7 +14,7 @@ def send_velocity():
 
     # Crear el mensaje Twist
     twist_msg = Twist()
-    twist_msg.linear.x = 0.1  # Velocidad lineal deseada en m/s
+    twist_msg.linear.x = 0.5 # Velocidad lineal deseada en m/s
     twist_msg.angular.z = 0.0
 
     start_time = time.time()
