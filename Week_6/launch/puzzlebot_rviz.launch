@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+        <!--Nodo_ODOM -->
+        <node pkg="tf2_ros" type="static_transform_publisher" name="map_joint" args="odomPose_x  odomPose_y  odomPose_z  odomPose_roll  odomPose_pitch  odomPose_yaw   map   odom"/>
+
+        <!-- Load mesh models -->
+        <arg name="simp_puzzlebot_sim_model" default="$(find simp_puzzlebot_sim)/urdf/puzzlebot_jetson_ed_urdf.urdf"/>
+    
+        <!-- Load robot descriptions -->
+        <param name="robot_description" command="cat $(arg simp_puzzlebot_sim_model)" />
+        
+        <!-- Start robot state publisher -->
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="simulated_state_publisher" output="screen"/>
+
+        <!-- Start nodes for joint state, localization, wheels, transforms, and trajectory -->
+        <node name="puzz_sim" pkg="simp_puzzlebot_sim" type="puzzlebot_kinematic_model.py"/>
+        <node name="localisation" pkg="simp_puzzlebot_sim" type="localisation.py"/>
+        <node name="puzzlebot_wheels" pkg="simp_puzzlebot_sim" type="wheels.py"/>
+        <node name="puzzlebot_transform" pkg="simp_puzzlebot_sim" type="transforms.py"/>
+        <node name="triangle" pkg="simp_puzzlebot_sim" type="triangle.py"/>
+        <node name="square_trajectory_node" pkg="simp_puzzlebot_sim" type="Control_lazo_abierto.py"/>
+
+        <!-- Start RViz with the configured configuration file -->
+        <arg name="rvizconfig" default="$(find simp_puzzlebot_sim)/rviz/puzzlebot_sim.rviz" />
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
+
+
+
+
+
+
+
+
